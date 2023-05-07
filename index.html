@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fish Cart</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+<div class="container">
+  <h1 > Fish Cart</h1>
+    <div class="row">
+        <div class="col-md-6">Products</div>
+        <div class="col-md-4">quantity</div>
+        <div class="col-md-2">price</div>
+    </div>
+</div>
+<div class="container containers">
+  <div class="row">
+    <div class="col-md-6 d-flex p-2">
+        <div class="image"><img src="/image/fish.jpg"></div>
+        <div>Gold Fish</div>
+    </div>
+    <div class="col-md-4 d-flex p-2"><i id="first-minus" class="bi bi-dash"></i><div id="fish-quantity">0</div><i id="first-plus" class="bi bi-plus"></i></div>
+    <div class="col-md-2">$ <span id="fish-price">100</span></div>
+   </div>
+</div>
+<div class="container containers">
+  <div class="row">
+    <div class="col-md-6 d-flex p-2">
+        <div class="image"><img src="/image/aqurium.jpg"></div>
+        <div>Aqurium</div>
+    </div>
+    <div class="col-md-4 d-flex p-2"><i id="second-minus" class="bi bi-dash"></i><div id="aqurium-quantity">0</div><i id="second-plus" class="bi bi-plus"></i></div>
+    <div class="col-md-2">$ <span id="aqurium-price">140</span></div>
+   </div>
+</div>
+<div class="container containers">
+  <div class="row">
+    <div class="col-md-6 d-flex p-2">
+        <div class="image"><img src="/image/food.jpg"></div>
+        <div>Gold Fish Food</div>
+    </div>
+    <div class="col-md-4 d-flex p-2"><i id="thired-minus" class="bi bi-dash"></i><div id="food-quantity">0</div><i id="thired-plus" class="bi bi-plus"></i></div>
+    <div class="col-md-2">$ <span id="food-price">10</span></div>
+   </div>
+</div>
+<div class="container containers">
+  <div class="row">
+    <div class="col-md-6">
+      <div>Subtotal :</div>
+      <div>Tax :</div>
+      <div>Total :</div>
+    </div>
+    <div class="col-md-4"> </div>
+    <div class="col-md-2">
+      <div>$<span id="sub-total">00</span></div>
+      <div>$<span id="tax">00</span></div>
+      <div>$<span id="total">00</span></div>
+    </div>
+  </div>
+</div>
+<script>
+
+const funcPlus = function(id1 , id2){
+  const Quantity = document.getElementById(id1).innerText;
+  const QuantityNumber = parseFloat(Quantity);
+
+  const multiplyQuantity = document.getElementById(id1).innerText =  QuantityNumber + 1 ;
+ 
+   const perPrice = document.getElementById(id2).innerText;
+   const perPriceNumber = parseFloat(perPrice);
+
+   const subTotal = document.getElementById("sub-total").innerText ;
+   const subTotalNumber = parseFloat(subTotal);
+   const wholeNumber = document.getElementById("sub-total").innerText = subTotalNumber + perPriceNumber;
+
+   const TaxNumber = document.getElementById("tax").innerText = Math.round(wholeNumber * 0.02);
+
+   document.getElementById("total").innerText = Math.round(wholeNumber + TaxNumber);
+
+}
+const funcMinus = function(id1 , id2){
+  const Quantity = document.getElementById(id1).innerText;
+  const QuantityNumber = parseFloat(Quantity);
+
+  const multiplyQuantity = document.getElementById(id1).innerText =  QuantityNumber - 1 ;
+ 
+   const perPrice = document.getElementById(id2).innerText;
+   const perPriceNumber = parseFloat(perPrice);
+
+   const subTotal = document.getElementById("sub-total").innerText ;
+   const subTotalNumber = parseFloat(subTotal);
+   const wholeNumber = document.getElementById("sub-total").innerText = subTotalNumber - perPriceNumber;
+
+   const TaxNumber = document.getElementById("tax").innerText = Math.round(wholeNumber * 0.02);
+
+   document.getElementById("total").innerText = Math.round(wholeNumber + TaxNumber);
+
+
+}
+const firstPlus = document.getElementById("first-plus");
+firstPlus.addEventListener("click" , function(){
+  funcPlus("fish-quantity", "fish-price");
+})
+
+
+const firstMinus = document.getElementById("first-minus");
+firstMinus.addEventListener("click" , function(){
+  funcMinus("fish-quantity", "fish-price");
+})
+
+const secondPlus = document.getElementById("second-plus");
+secondPlus.addEventListener("click" , function(){
+  funcPlus("aqurium-quantity", "aqurium-price");
+})
+
+const secondMinus = document.getElementById("second-minus");
+secondMinus.addEventListener("click" , function(){
+  funcMinus("aqurium-quantity", "aqurium-price");
+})
+const thiredPlus = document.getElementById("thired-plus");
+thiredPlus.addEventListener("click" , function(){
+  funcPlus("food-quantity", "food-price");
+})
+
+const thiredMinus = document.getElementById("thired-minus");
+thiredMinus.addEventListener("click" , function(){
+  funcMinus("food-quantity", "food-price");
+})
+
+document.getElementById("total").innerText = subTotalNumber;
+
+
+
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+.container{
+    margin-top: 5px;
+}
+.containers{
+    background-color: gainsboro;
+    border-radius: 10px;
+}
+/* .quantity{
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    background-color: whitesmoke;
+} */
+i{
+    color: rgb(78, 79, 79);
+    background-color: rgb(207, 207, 254);
+    border-radius: 5px;
+    margin: 3px 10px;
+    cursor: pointer;
+}
+i:hover{
+    color: aliceblue;
+    background-color: blue;
+}
+.image img{
+    width: 30px;
+    height: 30px;
+    margin-right: 100px;
+    margin-left: 20px;
+}
